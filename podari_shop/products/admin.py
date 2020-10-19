@@ -5,11 +5,16 @@ from products.models import Category
 
 
 class ProductAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'title', 'price', 'created_at', 'is_published')
+    list_display_links = ('id', 'title',)
+    list_editable = ('is_published',)
+    search_fields = ('title', )
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'title')
+    list_display_links = ('id', 'title')
+    search_fields = ('title',)
 
 
 admin.site.register(Product, ProductAdmin)
