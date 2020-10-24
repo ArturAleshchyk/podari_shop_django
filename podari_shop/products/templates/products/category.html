@@ -5,5 +5,28 @@
 {% endblock %}
 
 {% block content %}
-  <h1>categories#page</h1>
+    <div class="container mt-4">
+        <div class="row">
+            {% for product in products %}
+                <div class="col-sm-3 mb-4">
+                <div class="card">
+                    <div class="card-header text-center">{{product.title}}</div>
+                    {% if product.image %}
+                        <img class="card-img-top"
+                             src="{{product.image.url}}"
+                             alt="{{product.image}}"
+                             width="250"
+                             height="250"
+                        >
+                    {% else %}
+                        <img src="https://img1.pnghut.com/7/6/24/2Q2dQnEXYT/symmetry-logo-parallel-pendant-gemstone.jpg"
+                             alt="stub"
+                             width="253"
+                             height="250"
+                        >
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
 {% endblock %}

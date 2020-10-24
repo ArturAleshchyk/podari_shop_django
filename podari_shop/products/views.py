@@ -20,7 +20,7 @@ def index(req):
 def get_category(req, category_id):
     categories = Category.objects.all()
     category = get_object_or_404(Category, pk=category_id)
-    products = Product.objects.all()
+    products = Product.objects.filter(category_id=category_id)
 
     return render(req, 'products/category.html', {
         'categories': categories,
