@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}
+  {{category.title}}::{{block.super}}
+{% endblock %}
+
 {% block content %}
   <h1>categories#page</h1>
 {% endblock %}

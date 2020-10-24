@@ -12,7 +12,7 @@ def index(req):
     return render(req, 'products/index.html', {
         'categories': categories,
         'products': products,
-        'title': 'Главная',
+        'title': 'Главная страница',
         'last_products': last_products
     })
 
