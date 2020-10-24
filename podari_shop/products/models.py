@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Product(models.Model):
@@ -22,6 +23,9 @@ class Product(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=150, verbose_name='Категория', db_index=True)
     image = models.ImageField(upload_to='category_image/%Y/%m/%d/', blank=True, verbose_name='Изображение категории')
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'category_id': self.pk})
 
     def __str__(self):
         return self.title

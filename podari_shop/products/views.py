@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from products.models import Product, Category
 
@@ -14,4 +14,16 @@ def index(req):
         'products': products,
         'title': 'Главная',
         'last_products': last_products
+    })
+
+
+def get_category(req, category_id):
+    categories = Category.objects.all()
+    category = get_object_or_404(Category, pk=category_id)
+    products = Product.objects.all()
+
+    return render(req, 'products/category.html', {
+        'categories': categories,
+        'category': category,
+        'products': products
     })
